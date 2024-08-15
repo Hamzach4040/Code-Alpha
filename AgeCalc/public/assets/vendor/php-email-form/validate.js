@@ -10,7 +10,6 @@
 
   forms.forEach( function(e) {
     e.addEventListener('submit', function(event) {
-      event.preventDefault();
 
       let thisForm = this;
 

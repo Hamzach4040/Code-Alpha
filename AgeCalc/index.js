@@ -25,10 +25,50 @@ app.get('/About', (req, res) => {
 
 app.post('/getAge', (req, res) => {
     console.log(req.body)
-    const Age = null;
-    res.render('getAge.html', {
-        age: Age
+    console.log(req.headers)
+    // function calculateAge(dob) {
+    //     let birthDate = new Date(dob);
+    //     let today = new Date();
+    
+    //     let age = today.getFullYear() - birthDate.getFullYear();
+    
+    //     let monthDifference = today.getMonth() - birthDate.getMonth();
+    //     if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < birthDate.getDate())) {
+    //         age--;
+    //     }
+    
+    //     return age;
+    // }
+    function calculateAge(dob) {
+        let birthDate = new Date(dob);
+        let today = new Date();
+    
+        let years = today.getFullYear() - birthDate.getFullYear();
+        let months = today.getMonth() - birthDate.getMonth();
+        let days = today.getDate() - birthDate.getDate();
+    
+        // Adjust months and years if necessary
+        if (months < 0 || (months === 0 && days < 0)) {
+            years--;
+            months += 12;
+        }
+    
+        if (days < 0) {
+            months--;
+            let lastMonth = new Date(today.getFullYear(), today.getMonth(), 0);
+            days += lastMonth.getDate();
+        }
+    
+        return { years, months, days };
+    }  
+    
+    res.send({
+        age: calculateAge(req.body.date)
     })
+    // const Age = null;
+    // res.render('getAge.html', {
+    //  age: Age
+    // })
 });
 
 app.listen(port, function() {
