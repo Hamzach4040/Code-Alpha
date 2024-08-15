@@ -1,0 +1,77 @@
+<%- include('partials/header.ejs') %>
+  <body class="index-page">
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div
+        class="container-fluid position-relative d-flex align-items-center justify-content-between"
+      >
+        <a
+          href="index.html"
+          class="logo d-flex align-items-center me-auto me-xl-0"
+        >
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1 class="sitename">GetYourAge</h1>
+          <span>.</span>
+        </a>
+
+        <nav id="navmenu" class="navmenu">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/Api">API</a></li>
+            <li><a href="/About" class="active">ABOUT</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main">
+      <!-- Hero Section -->
+      <section id="hero" class="hero section dark-background">
+        <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in" />
+
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-10">
+              <h2 data-aos="fade-up" data-aos-delay="100">About Me</h2>
+              <p data-aos="fade-up" data-aos-delay="200">
+                I am a self-taught Full Stack Developer with expertise in Node.js and Python. My journey in programming has been driven by a passion for learning and problem-solving. I have successfully developed and deployed various web applications, leveraging my skills in both backend and frontend technologies.
+              </p>
+              <p class="logo-wrapper" data-aos="fade-up" data-aos-delay="200">
+              <a href="www.linkedin.com/in/muhammadhamzaaman" class="logo-link">
+                <i style="font-size: 40px;" class="fa-brands fa-linkedin"></i>
+              </a>
+              </p>
+            </div>
+            
+        </div>
+      </section>
+      <!-- /Hero Section -->
+
+    </main>
+
+    <!-- Scroll Top -->
+    <a
+      href="#"
+      id="scroll-top"
+      class="scroll-top d-flex align-items-center justify-content-center"
+      ><i class="bi bi-arrow-up-short"></i
+    ></a>
+
+    <!-- Preloader -->
+    <div id="preloader"></div>
+
+    <!-- Vendor JS Files -->
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/php-email-form/validate.js"></script>
+    <script src="assets/vendor/aos/aos.js"></script>
+    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Main JS File -->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
