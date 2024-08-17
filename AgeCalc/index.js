@@ -12,7 +12,8 @@ const limiter = rateLimit({
 });
 // middleware
 app.use(express.static('public'));
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({ extended: true })); // to parse form data
+app.use(bodyParser.json()); // to parse json data
 app.use(limiter);
 // function to calculate age
 function calculateAge(dob) {
@@ -52,8 +53,14 @@ app.post('/getAge', (req, res) => {
     })
 });
 
-app.post('/Api', (req, res) => {
+app.get('/Api', (req, res) => {
     res.render('api.ejs');
+})
+
+app.post('/Api/getAge', (req, res) => {
+    res.json({
+        age: calculateAge(req.body.date)
+    });
 })
 
 app.listen(port, function() {

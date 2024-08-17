@@ -858,3 +858,38 @@ section,
   padding-top: 3%;
 }
 
+.examples-container {
+  margin-top: 40px;
+}
+
+.example {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.example i {
+  font-size: 26px;
+  color: white;
+}
+
+.img-wrapper {
+  padding: 10% 0;
+  background-color: #0f111a;
+  border-radius: 7px;
+  width: 100%;
+}
+
+.example img {
+  position: static;
+  object-fit: contain;
+  width: 80%;
+}
+
+p.help-container {
+  font-size: 24px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
