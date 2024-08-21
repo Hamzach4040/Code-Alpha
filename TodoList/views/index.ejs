@@ -12,6 +12,10 @@
       <meta name="description" content="This is a simple to do list app. You can use this to create lists of your daily tasks. Keep records of what you have completed and what remains to be done.">
       <!-- title -->
     <title>To-Do List</title>
+    <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- main -->
@@ -19,33 +23,31 @@
         <!-- sidebar -->
         <div class="sidebar">
             <!-- sidebar-top -->
-            <div class="sidebar-inner">
-                <img src="" alt="">
+            <div class="sidebar-inner-1">
+                <img src="/assets/1.jpeg" alt="profile-picture">
                 <div class="sidebar-inner-text-container">
                     <p>Do-it</p>
-                    <p class="name">Hamza</p>
+                    <p class="name">Hamza Aman</p>
                 </div>
             </div>
             <!-- sidebar-divider -->
             <div class="sidebar-divider"></div>
             <!-- sidebar-bottom -->
-            <div class="sidebar-inner">
+            <div class="sidebar-inner-2">
                 <div class="side-bar-content-wrapper">
-                    <i class="fa-solid fa-calendar-circle-plus"></i>
+                    <a href="/home">
+                        <i class="fa-solid fa-calendar-days active"></i>
+                    </a>
                     <div class="today-tasks">
-                        <p>Today's Tasks</p>
+                        <a href="/home">Today's Tasks</a>
                     </div>
                 </div>
                 <div class="side-bar-content-wrapper">
-                    <i class="fa-solid fa-calendar-clock"></i>
+                    <a href="/scheduled">
+                        <i class="fa-solid fa-clock"></i>
+                    </a>
                     <div class="today-tasks">
-                        <p>Scheduled Tasks</p>
-                    </div>
-                </div>
-                <div class="side-bar-content-wrapper">
-                    <i class="fa-solid fa-gear"></i>
-                    <div class="">
-                        <p>Settings</p>
+                        <a href="/scheduled">Scheduled Tasks</a>
                     </div>
                 </div>
             </div>
@@ -62,14 +64,15 @@
                 </h1>
             </div>
             <!-- input for task creation -->
-            <div class="task-creation-wrapper">
-                <input type="text" name="task" id="task" required placeholder="What is your next task? ">
-                <input type="time" name="dueTime" id="time" >
-                <input type="date" name="dueDate" id="date">
-            </div>
+                <form action="/addTask" method="post" id="task-form" class="task-creation-wrapper">
+                    <input type="text" name="task" id="task" required placeholder="What is your next task? ">
+                    <div class="time-and-date">
+                        <input type="time" name="dueTime" id="time-input" >
+                        <input type="date" name="dueDate" id="date-input" required min="<%= new Date().toISOString().split("T")[0] %>">
+                    </div>
+                </form>
             <!-- list of todays tasks -->
              <div class="date-tasks">
-
                 <div class="task-details">
                     <p class="task-title">Task content</p>
                     <p class="time">8:00 am</p>
@@ -77,7 +80,23 @@
                     <input type="button" value="✔" class="task-check">
                 </div>
              </div>
+
         </div>
     </main>
 </body>
+<script>
+    document.getElementById('time-input').addEventListener('click', function() {
+    this.showPicker();
+});
+document.getElementById('date-input').addEventListener  ('click', function() {
+    this.showPicker();
+});
+
+document.querySelector('.todo-main').addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' ) {
+        document.getElementById('task-form').submit();
+    }
+})
+
+</script>
 </html>

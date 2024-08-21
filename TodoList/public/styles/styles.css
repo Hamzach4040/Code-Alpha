@@ -1,0 +1,212 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #a18aff;
+    padding: 10px;
+}
+
+.main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    border-radius: 20px;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    background-color: #fff;
+    border-radius: 10px 0 0 10px;
+    height: 100%;
+    padding: 20px 30px 20px 20px;
+}
+
+.sidebar-inner-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 5px;
+    gap: 20px;
+}
+
+.sidebar-inner-1 img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.sidebar-inner-text-container p {
+    font-size: 20px;
+    color: #717082;
+}
+
+.sidebar-inner-text-container p.name {
+    font-size: 24px;
+    color: #a18aff;
+}
+
+.sidebar-divider {
+    height: 3px;
+    background-color: #a18aff;
+    width: 85%;
+    margin-top: 30px;
+    margin-bottom: 70px;
+    border-radius: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar-inner-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 20px;
+}
+
+.side-bar-content-wrapper {
+    display: flex;
+    gap: 40px;
+    padding: 10px;
+}
+
+.side-bar-content-wrapper i {
+    font-size: 25px;
+    color: #717082;
+    transition: all 0.3s ease-in-out;
+}
+
+.side-bar-content-wrapper i.active {
+    color: #a18aff;
+}
+
+.side-bar-content-wrapper .today-tasks a {
+    text-decoration: none;
+    color: #717082;
+    font-size: 20px;
+}
+
+.side-bar-content-wrapper i:hover {
+    color: #a18aff;
+}
+
+.todo-main {
+    color: white;
+    padding: 50px 100px 0;
+}
+
+.heading-container {
+    padding: 0 10px 0;
+    margin-bottom: 40px;
+}
+
+.heading-container h3 {
+    color: #fffffff6;
+    font-size: 42px;
+}
+
+.heading-container h1 {
+    color: #fff;
+    font-size: 48px;
+    font-weight: 900;
+}
+
+.task-creation-wrapper {
+    background-color: white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    padding: 0 30px 0 20px;
+    width: 61vw;
+}
+
+.task-creation-wrapper input[type="text"] {
+    border: none;
+    font-size: 20px;
+    outline: none;
+    color: black;
+    font-weight: 600;
+    width: 100%;
+}
+
+.task-creation-wrapper input[type="text"]::placeholder {
+    font-weight: normal;
+    color: #a0a0a0;
+}
+
+.time-and-date {
+    display: flex;
+    gap: 20px;
+}
+
+input[type="time"] {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    visibility: none;
+    border: none;
+    outline: none;
+}
+
+input[type="time"]::after {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/clock-icon.png') no-repeat center center #fff;
+    cursor: pointer;
+    background-size: contain;
+    pointer-events: none;
+    z-index: 2;
+}
+
+input[type="date"] {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    visibility: none;
+    border: none;
+    outline: none;
+}
+
+input[type="date"]::after {
+    content: '';
+    position: absolute;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/assets/calendar.png') no-repeat center center #fff;
+    background-size: contain;
+    cursor: pointer;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.date-tasks {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.task-details {
+    
+}
