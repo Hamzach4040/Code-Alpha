@@ -1,0 +1,32 @@
+        <!-- sidebar -->
+        <div class="sidebar">
+            <!-- sidebar-top -->
+            <div class="sidebar-inner-1">
+                <img src="/assets/1.jpeg" alt="profile-picture">
+                <div class="sidebar-inner-text-container">
+                    <p>Do-it</p>
+                    <p class="name">Hamza Aman</p>
+                </div>
+            </div>
+            <!-- sidebar-divider -->
+            <div class="sidebar-divider"></div>
+            <!-- sidebar-bottom -->
+            <div class="sidebar-inner-2">
+                <div class="side-bar-content-wrapper">
+                    <a href="/">
+                        <i class="fa-solid fa-calendar-days <%= homeActive ? "active" : null %>"></i>
+                    </a>
+                    <div class="today-tasks">
+                        <a href="/">Today's Tasks</a>
+                    </div>
+                </div>
+                <div class="side-bar-content-wrapper">
+                    <a href="/scheduled">
+                        <i class="fa-solid fa-clock <%= scheduledActive ? "active" : null %>"></i>
+                    </a>
+                    <div class="today-tasks">
+                        <a href="/scheduled">Scheduled Tasks</a>
+                    </div>
+                </div>
+            </div>
+        </div>

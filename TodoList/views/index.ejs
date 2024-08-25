@@ -1,57 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <!-- meta encoding and viewport  -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- fontawesome cdn -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <!-- styles.css -->
-     <link rel="stylesheet" href="styles/styles.css">
-     <!-- meta seo -->
-      <meta name="description" content="This is a simple to do list app. You can use this to create lists of your daily tasks. Keep records of what you have completed and what remains to be done.">
-      <!-- title -->
-    <title>To-Do List</title>
-    <!-- fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- main -->
-    <main class="main-container">
+<%- include("partials/header.ejs") %>
+
         <!-- sidebar -->
-        <div class="sidebar">
-            <!-- sidebar-top -->
-            <div class="sidebar-inner-1">
-                <img src="/assets/1.jpeg" alt="profile-picture">
-                <div class="sidebar-inner-text-container">
-                    <p>Do-it</p>
-                    <p class="name">Hamza Aman</p>
-                </div>
-            </div>
-            <!-- sidebar-divider -->
-            <div class="sidebar-divider"></div>
-            <!-- sidebar-bottom -->
-            <div class="sidebar-inner-2">
-                <div class="side-bar-content-wrapper">
-                    <a href="/home">
-                        <i class="fa-solid fa-calendar-days active"></i>
-                    </a>
-                    <div class="today-tasks">
-                        <a href="/home">Today's Tasks</a>
-                    </div>
-                </div>
-                <div class="side-bar-content-wrapper">
-                    <a href="/scheduled">
-                        <i class="fa-solid fa-clock"></i>
-                    </a>
-                    <div class="today-tasks">
-                        <a href="/scheduled">Scheduled Tasks</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <%- include("partials/sidebar.ejs") %>
+        
         <!--tasks container -->
         <div class="todo-main">
             <!-- heading  -->
@@ -73,25 +24,50 @@
                 </form>
             <!-- list of todays tasks -->
              <div class="date-tasks">
-                <div class="task-details">
-                    <p class="task-title">Task content</p>
-                    <p class="time">8:00 am</p>
-                    <input type="hidden" name="id" value="1">
-                    <input type="button" value="✔" class="task-check">
+
+                <% dueTasks.forEach(task => { %>
+                    <div class="task-details">
+                        <p class="task-title"><%= task.taskcontent %></p>
+                        <form action="/Done" method="post">
+                            <% if (task.tasktime != null) { %>                             
+                                <p class="time"><%= task.tasktime %></p>
+                            <% } %>
+                            <input type="hidden" name="id" value="<%= task.id %>">
+                            <button type="submit">
+                                <i class="fa-regular fa-circle-check"></i>
+                            </button>
+                        </form>
+                    </div>
+                    <% }) %>
+
                 </div>
-             </div>
+
+             <!-- completed tasks -->
+              <% if (locals.completedTasks != null) { %>
+                <h1 class="completed-title">Completed</h1>
+                 <div class="completed-tasks-wrapper">
+   
+                   <% completedTasks.forEach(task => { %>
+                   <div class="task-details completed">
+                       <p class="task-title"><%= task.taskcontent %></p>
+                   </div>
+                   <% }) %>
+                 </div>
+              <% } %>
 
         </div>
     </main>
 </body>
 <script>
+    // script to show picker for time input
     document.getElementById('time-input').addEventListener('click', function() {
     this.showPicker();
 });
+    // script to show picker for date input
 document.getElementById('date-input').addEventListener  ('click', function() {
     this.showPicker();
 });
-
+    // script to handle submission event for form
 document.querySelector('.todo-main').addEventListener('keydown', function(event) {
     if (event.key === 'Enter' ) {
         document.getElementById('task-form').submit();

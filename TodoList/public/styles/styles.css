@@ -205,8 +205,70 @@ input[type="date"]::after {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 0 10px;
+    margin-top: 50px;
 }
 
 .task-details {
-    
+    width: 100%;
+    background-color: #fff;
+    border-radius: 20px;
+    color: #717082;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-details .task-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #717082;
+}
+
+.date-tasks form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.date-tasks form p {
+    font-weight: bold;
+}
+
+.date-tasks form button {
+    font-size: 20px;
+    background-color: #fff;
+    border: none;
+    color: #a18aff;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.date-tasks form button:hover {
+    color: #717082;
+    transform: scale(1.05);
+}
+
+.completed-title  {
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    margin-top: 40px;
+}
+
+.completed-tasks-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 10px;
+    padding-left: 10px;
+}
+
+.completed-tasks-wrapper .task-details {
+    background-color: #717082;
+}
+
+.completed-tasks-wrapper .task-details .task-title {
+    color: #ccc;
 }
