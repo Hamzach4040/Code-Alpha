@@ -2,7 +2,35 @@
 <%- include("partials/sidebar.ejs") %>
 
 <div class="todo-main">
+
+    <div class="heading-container">
+        <h1>
+            Scheduled Tasks
+        </h1>
+    </div>
+
+    <% for (let date in tasks) { %>
+
+    <h1 class="date"><%= date %></h1>
+    <div class="date-tasks-sched">
+    <% for (let task of tasks[date]) {%>
+    <div class="task-details strict-width">
+        <p class="task-title"><%= task.taskcontent %></p>
+        <form action="/Done" method="post">
+            <% if (task.tasktime != null) { %>                             
+                <p class="time"><%= task.tasktime %></p>
+            <% } %>
+            <input type="hidden" name="id" value="<%= task.id %>">
+            <button type="submit">
+                <i class="fa-regular fa-circle-check"></i>
+            </button>
+        </form>
+    </div>
     
+    <% } %> 
+</div>
+<% } %>
+
 </div>
 
 </div>
