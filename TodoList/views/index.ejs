@@ -7,11 +7,8 @@
         <div class="todo-main">
             <!-- heading  -->
             <div class="heading-container">
-                <h3>
-                    Todays Main Focus
-                </h3>
                 <h1>
-                    Meeting with Hamza
+                    Today's Tasks
                 </h1>
             </div>
             <!-- input for task creation -->
@@ -43,7 +40,7 @@
                 </div>
 
              <!-- completed tasks -->
-              <% if (locals.completedTasks != null) { %>
+              <% if (locals.completedTasks[0]) { %>
                 <h1 class="completed-title">Completed</h1>
                  <div class="completed-tasks-wrapper">
    
